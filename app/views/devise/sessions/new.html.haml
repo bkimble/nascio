@@ -1,0 +1,21 @@
+%h2 Log In
+
+=bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| 
+  .row
+    .col-lg-5  
+    .col-lg-2
+      =f.email_field :email, autofocus: true
+    .col-lg-5
+  .row
+    .col-lg-5  
+    .col-lg-2
+      =f.password_field :password, autocomplete: "off"
+    .col-lg-5
+
+  - if devise_mapping.rememberable?
+    %div
+      =f.check_box :remember_me
+
+  =f.submit("Log in")
+
+= render "devise/shared/links"

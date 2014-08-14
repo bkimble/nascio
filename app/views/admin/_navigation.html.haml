@@ -39,15 +39,11 @@
           %a{href: "#"} Link
         %li.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-            Dropdown
+            Account
             %span.caret
           %ul.dropdown-menu{role: "menu"}
             %li
-              %a{href: "#"} Action
-            %li
-              %a{href: "#"} Another action
-            %li
-              %a{href: "#"} Something else here
+              =link_to("Logout", destroy_admin_user_session_url, method: :delete)
             %li.divider
             %li
-              %a{href: "#"} Separated link
+              %a{href: "#"} Info
