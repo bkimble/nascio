@@ -6,5 +6,37 @@
   - @users.each do |user|
     %tr
       %td= link_to(user.name, edit_admin_user_url(user))
-      
-      
+
+%table{class: 'table table-striped'}
+  %thead
+    %tr
+      %td Name
+      %td Email
+      %td Created At
+      %td Last Log In
+      %td Status
+  %tbody
+    %tr
+      %td= link_to("Billy Kimble")
+      %td billy.kimble@akqa.com
+      %td 2012-01-10
+      %td 2012-01-10
+      %td Awesome
+    %tr
+      %td= link_to("Jack Smith")
+      %td js.smithttthhhhh@akqa.com
+      %td 2014-01-15
+      %td 2019-01-19
+      %td From the Future
+    %tr
+      %td= link_to("Marlon Le Baron")
+      %td smithy.le.pew@yahoo.com
+      %td 2012-01-15
+      %td 2011-01-19
+      %td Smelly
+    %tr
+      %td= link_to("Madonna Madonna")
+      %td vogue@rogue.ouge
+      %td 2012-04-11
+      %td 2014-02-19
+      %td Blonde

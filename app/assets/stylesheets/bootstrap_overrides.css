@@ -896,12 +896,12 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #207db3;
+  color: #d3d300;
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #145072;
+  color: #FFFF00;
   text-decoration: underline;
 }
 a:focus {
@@ -2106,7 +2106,7 @@ th {
 }
 .table-striped > tbody > tr:nth-child(odd) > td,
 .table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #f9f9f9;
+  background-color: #e14147;
 }
 .table-hover > tbody > tr:hover > td,
 .table-hover > tbody > tr:hover > th {
