@@ -15,6 +15,7 @@ route "
 "
 
 directory("app/views/admin")
+directory("app/views/devise")
 copy_file("app/views/layouts/admin.html.haml")
 copy_file("app/views/layouts/admin_unprotected.html.haml")
 copy_file("app/models/user.rb")
@@ -65,6 +66,9 @@ insert_into_file("config/initializers/devise.rb", after: "# config.omniauth_path
   end
   '
 end
+
+#unsure why we need to do two hashes to get a comment to work  but a single is ignored.
+insert_into_file("config/initializers/cookies_serializer.rb", "##", before: "Rails")
 
 rake("db:migrate")
 

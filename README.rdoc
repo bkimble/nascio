@@ -1,0 +1,4 @@
+http://paintstrap.com/
+
+
+AdminUser.create!({:email => "admin@akqa.com",  :password => "akqa1234", :password_confirmation => "akqa1234" })
