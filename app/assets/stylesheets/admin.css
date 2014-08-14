@@ -1,0 +1,13 @@
+// Place all the styles related to the admin controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*
+*= require bootstrap_overrides
+*/
+
+body {
+  background-color: CE2127;
+  font: Arial;
+}
+

@@ -3,7 +3,6 @@ def source_paths
 end
 
 generate(:controller, "admin")
-#generate(:controller, "admin/users")
 
 route "
   namespace :admin do
@@ -11,15 +10,16 @@ route "
    end
 
   get 'admin' => 'admin/users#index'
+
+  root 'admin/users#index'
 "
 
-copy_file("app/views/admin/users/index.html.haml")
-copy_file("app/views/admin/_navigation.html.haml")
+directory("app/views/admin")
 copy_file("app/views/layouts/admin.html.haml")
+copy_file("app/views/layouts/admin_unprotected.html.haml")
 copy_file("app/models/user.rb")
-directory("app/assets/stylesheets", force: true)
-directory("app/assets/javascripts", force: true)
-copy_file("app/controllers/admin/users_controller.rb", force: true)
+directory("app/assets", force: true)
+directory("app/controllers/admin", force: true)
 
 # Gems
 gem 'bootstrap-sass', '~> 3.2.0'
@@ -53,6 +53,18 @@ generate(:devise, "AdminUser")
 generate("devise:views")
 # Add host to default url options for development
 insert_into_file("config/environments/development.rb", "\tconfig.action_mailer.default_url_options = { host: 'localhost', port: 3000 }\n", after: "config.assets.debug = true\n")
+append_to_file("config/initializers/assets.rb", "Rails.application.config.assets.precompile += %w( admin.css )")
+insert_into_file("config/initializers/devise.rb", after: "# config.omniauth_path_prefix = '/my_engine/users/auth'\n") do
+  '
+  Rails.application.config.to_prepare do
+    Devise::SessionsController.layout "admin_unprotected"
+    Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "admin" : "admin_unprotected" }
+    Devise::ConfirmationsController.layout "admin_unprotected"
+    Devise::UnlocksController.layout "admin_unprotected"            
+    Devise::PasswordsController.layout "admin_unprotected"        
+  end
+  '
+end
 
 rake("db:migrate")
 
