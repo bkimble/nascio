@@ -67,7 +67,7 @@ insert_into_file("config/initializers/devise.rb", after: "# config.omniauth_path
   '
 end
 
-gsub_file 'app/models/admin_user.rb', /devise :database_authenticatable, :registerable,\n[\s\t]+:recoverable, :rememberable, :trackable, :validatable\n/, 'devise: :database_authenticatable, :trackable, :rememberable, :validatable'
+gsub_file 'app/models/admin_user.rb', /devise :database_authenticatable, :registerable,\n[\s\t]+:recoverable, :rememberable, :trackable, :validatable\n/, 'devise :database_authenticatable, :trackable, :rememberable, :validatable'
 
 #unsure why we need to do two hashes to get a comment to work  but a single is ignored.
 insert_into_file("config/initializers/cookies_serializer.rb", "##", before: "Rails")
