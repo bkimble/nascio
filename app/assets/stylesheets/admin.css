@@ -7,7 +7,26 @@
 */
 
 body {
-  background-color: CE2127;
   font: Arial;
 }
 
+.flash {
+  padding: 10px;
+  margin: 4px;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #000;
+  border: 1px #666 solid;
+}
+
+.flash.error {
+  background-color: #D0F502;
+}
+
+.flash.notice {
+  background-color: #2F912C;
+}
+
+.primary_padded_button {
+  margin-left: 8px;
+}
